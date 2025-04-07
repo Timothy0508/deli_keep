@@ -12,6 +12,27 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(appBar: AppBar(title: Text(widget.title)));
+    var size = MediaQuery.of(context).size;
+    var drawer = Drawer();
+    return Scaffold(
+      drawer: drawer,
+      body: Center(
+        child: Card(
+          child: CustomScrollView(
+            slivers: [
+              SliverAppBar(
+                title: Text(widget.title),
+                expandedHeight: 200,
+                centerTitle: true,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+                backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }
