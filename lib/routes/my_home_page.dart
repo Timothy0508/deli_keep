@@ -15,20 +15,15 @@ class _MyHomePageState extends State<MyHomePage> {
     var size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
 
-    var body = Card(
-      child: CustomScrollView(
-        slivers: [
-          SliverAppBar(
-            title: Text(widget.title),
-            expandedHeight: 200,
-            centerTitle: true,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-            ),
-            backgroundColor: theme.colorScheme.inversePrimary,
-          ),
-        ],
-      ),
+    var body = CustomScrollView(
+      slivers: [
+        SliverAppBar(
+          title: Text(widget.title),
+          expandedHeight: 200,
+          centerTitle: true,
+          backgroundColor: theme.colorScheme.inversePrimary,
+        ),
+      ],
     );
     var appTitle = DrawerHeader(
       decoration: BoxDecoration(color: theme.colorScheme.inversePrimary),
