@@ -12,11 +12,10 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    bool isNarrowScreen = MediaQuery.of(context).size.width < 500;
     var size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
 
-    var noteDisplay = Card(
+    var body = Card(
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -31,32 +30,37 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
-    var appTitle = Container(
-      width: size.width,
-      height: 100,
-      child: Text(widget.title),
-      alignment: Alignment.center,
-      decoration: BoxDecoration(
-        color: theme.colorScheme.inversePrimary,
-        borderRadius: BorderRadius.circular(10),
+    var appTitle = DrawerHeader(
+      decoration: BoxDecoration(color: theme.colorScheme.inversePrimary),
+      child: Container(
+        width: size.width,
+        child: Text(widget.title),
+        alignment: Alignment.center,
+      ),
+    );
+    var navMenu = Container();
+    var navTrailing = Container(
+      child: SingleChildScrollView(
+        child: Column(
+          children: [
+            ListTile(
+              leading: Icon(Icons.settings),
+              title: Text('Settings'),
+              onTap: () {},
+            ),
+          ],
+        ),
       ),
     );
 
-    var navBar = Card(child: Container(child: Column(children: [appTitle])));
+    var navBar = Container(
+      child: Column(
+        children: [appTitle, Expanded(child: navMenu), navTrailing],
+      ),
+    );
 
     var drawer = Drawer(child: navBar);
 
-    var body = Flex(
-      direction: Axis.horizontal,
-      children: [
-        Expanded(flex: 1, child: navBar),
-        Expanded(flex: 5, child: noteDisplay),
-      ],
-    );
-
-    return Scaffold(
-      drawer: isNarrowScreen ? drawer : null,
-      body: Center(child: isNarrowScreen ? noteDisplay : body),
-    );
+    return Scaffold(drawer: drawer, body: Center(child: body));
   }
 }
