@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/type_card.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -14,6 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
+    bool isNarrow = size.width < 500;
 
     var body = CustomScrollView(
       slivers: [
@@ -22,6 +25,18 @@ class _MyHomePageState extends State<MyHomePage> {
           expandedHeight: 200,
           centerTitle: true,
           backgroundColor: theme.colorScheme.inversePrimary,
+        ),
+        SliverGrid(
+          delegate: SliverChildListDelegate([
+            TypeCard(type: PredefineTypes.stared),
+            TypeCard(type: PredefineTypes.planned),
+            TypeCard(type: PredefineTypes.tasks),
+            TypeCard(type: PredefineTypes.today),
+          ]),
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2,
+            childAspectRatio: isNarrow ? 1.5 : 3,
+          ),
         ),
       ],
     );
