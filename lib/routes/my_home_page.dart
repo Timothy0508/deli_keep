@@ -17,6 +17,7 @@ class _MyHomePageState extends State<MyHomePage> {
     var size = MediaQuery.of(context).size;
     var theme = Theme.of(context);
     bool isNarrow = size.width < 500;
+    bool isMedNarrow = size.width < 1000;
 
     var body = CustomScrollView(
       slivers: [
@@ -34,7 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
             TypeCard(type: PredefineTypes.today),
           ]),
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
+            crossAxisCount: isMedNarrow ? 2 : 4,
             childAspectRatio: isNarrow ? 1.5 : 3,
           ),
         ),

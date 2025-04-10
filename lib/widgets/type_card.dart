@@ -2,22 +2,22 @@ import 'package:flutter/material.dart';
 
 enum PredefineTypes {
   stared(
-    icon: Icon(Icons.star_border_outlined, color: Colors.deepOrange),
+    icon: Icon(Icons.star_rounded, color: Colors.deepOrange),
     title: 'Starred',
     color: Colors.deepOrange,
   ),
   today(
-    icon: Icon(Icons.today_outlined, color: Colors.blue),
+    icon: Icon(Icons.today, color: Colors.blue),
     title: 'Today',
     color: Colors.blue,
   ),
   planned(
-    icon: Icon(Icons.calendar_month_outlined, color: Colors.green),
+    icon: Icon(Icons.calendar_month, color: Colors.green),
     title: 'Planned',
     color: Colors.green,
   ),
   tasks(
-    icon: Icon(Icons.home_outlined, color: Colors.purple),
+    icon: Icon(Icons.home_rounded, color: Colors.purple),
     title: 'Tasks',
     color: Colors.purple,
   );
