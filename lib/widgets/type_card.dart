@@ -5,33 +5,40 @@ enum PredefineTypes {
     icon: Icon(Icons.star_rounded, color: Colors.deepOrange),
     title: 'Starred',
     color: Colors.deepOrange,
+    backgroundColor: Colors.orangeAccent,
   ),
   today(
     icon: Icon(Icons.today, color: Colors.blue),
     title: 'Today',
     color: Colors.blue,
+    backgroundColor: Colors.lightBlueAccent,
   ),
   planned(
     icon: Icon(Icons.calendar_month, color: Colors.green),
     title: 'Planned',
     color: Colors.green,
+    backgroundColor: Colors.lightGreenAccent,
   ),
   tasks(
     icon: Icon(Icons.home_rounded, color: Colors.purple),
     title: 'Tasks',
     color: Colors.purple,
+    backgroundColor: Colors.purpleAccent,
   );
 
   final Icon icon;
 
   final String title;
 
-  final dynamic color;
+  final Color color;
+
+  final Color backgroundColor;
 
   const PredefineTypes({
     required this.icon,
     required this.title,
     required this.color,
+    required this.backgroundColor,
   });
 }
 
@@ -54,10 +61,13 @@ class _TypeCardState extends State<TypeCard> {
     );
 
     var body = Card(
-      child: Container(
+      surfaceTintColor: widget.type.backgroundColor,
+      child: InkWell(
+        onTap: () => null,
+        borderRadius: BorderRadius.circular(10),
         child: Row(
-          children: [icon, title],
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [icon, title],
         ),
       ),
     );
