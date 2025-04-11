@@ -1,3 +1,4 @@
+import 'package:deli_keep/routes/note_page.dart';
 import 'package:flutter/material.dart';
 
 enum PredefineTypes {
@@ -63,7 +64,19 @@ class _TypeCardState extends State<TypeCard> {
     var body = Card(
       surfaceTintColor: widget.type.backgroundColor,
       child: InkWell(
-        onTap: () => null,
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder:
+                    (context) => NotePage(
+                      title: widget.type.title,
+                      color: widget.type.color,
+                      backgroundColor: widget.type.backgroundColor,
+                      icon: widget.type.icon,
+                    ),
+              ),
+            ),
         borderRadius: BorderRadius.circular(10),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
