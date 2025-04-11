@@ -24,13 +24,30 @@ class NotePage extends StatefulWidget {
 class _NotePageState extends State<NotePage> {
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
+
     var body = CustomScrollView(
       slivers: [
         SliverAppBar(
-          title: Text(widget.title, style: TextStyle(color: widget.color)),
-          leading: widget.icon,
-          backgroundColor: widget.backgroundColor,
+          title: Text(widget.title),
+          backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
           expandedHeight: 200,
+          iconTheme: IconThemeData(size: 40),
+          flexibleSpace: Container(
+            alignment: Alignment.bottomLeft,
+            margin: EdgeInsets.all(20),
+            height: size.height,
+            child: Row(
+              spacing: 20,
+              children: [
+                widget.icon,
+                Text(
+                  widget.title,
+                  style: TextStyle(color: widget.color, fontSize: 40),
+                ),
+              ],
+            ),
+          ),
         ),
       ],
     );
