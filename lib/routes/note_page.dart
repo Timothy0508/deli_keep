@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+///The page for each categories
+///
+/// `const NotePage({
+///     super.key,
+///     required this.title,
+///     required this.color,
+///     required this.backgroundColor,
+///     required this.icon,
+///   });`
 class NotePage extends StatefulWidget {
   final String title;
 
