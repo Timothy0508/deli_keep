@@ -36,17 +36,23 @@ class _AddNoteDialogState extends State<AddNoteDialog> {
         hintText: 'Enter title',
       ),
     );
-    var bodyField = TextField(
-      controller: _noteBodyController,
-      decoration: InputDecoration(
-        border: OutlineInputBorder(borderSide: BorderSide.none),
-        hintText: 'Enter body',
+    var bodyField = Expanded(
+      child: TextField(
+        controller: _noteBodyController,
+        maxLines: null,
+        decoration: InputDecoration(
+          border: OutlineInputBorder(borderSide: BorderSide.none),
+          hintText: 'Enter body',
+        ),
       ),
     );
     var body = Theme(
       data: theme,
       child: AlertDialog(
-        content: Column(children: [titleField, Divider(), bodyField]),
+        content: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Column(children: [titleField, Divider(), bodyField]),
+        ),
         actions: [
           ElevatedButton(
             onPressed: () => Navigator.pop(context),
