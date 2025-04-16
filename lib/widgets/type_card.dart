@@ -1,6 +1,9 @@
 import 'package:deli_keep/routes/note_page.dart';
 import 'package:flutter/material.dart';
 
+///The enum for each types.
+///
+///Including: `stared`, `today`, `planned`, `tasks`
 enum PredefineTypes {
   stared(
     icon: Icon(Icons.star_rounded, color: Colors.deepOrange),
@@ -43,6 +46,9 @@ enum PredefineTypes {
   });
 }
 
+///The pressable navigation widgets
+///
+/// `const TypeCard({super.key, required this.type});`
 class TypeCard extends StatefulWidget {
   final PredefineTypes type;
 
