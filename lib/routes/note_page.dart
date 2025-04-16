@@ -40,7 +40,7 @@ class _NotePageState extends State<NotePage> {
             child: Row(
               spacing: 20,
               children: [
-                widget.icon,
+                Icon(widget.icon.icon, size: 40, color: widget.color),
                 Text(
                   widget.title,
                   style: TextStyle(color: widget.color, fontSize: 40),
