@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../widgets/add_note_dialog.dart';
+
 ///The page for each categories
 ///
 /// `const NotePage({
@@ -73,7 +75,7 @@ class _NotePageState extends State<NotePage> {
       child: Scaffold(
         body: body,
         floatingActionButton: FloatingActionButton(
-          onPressed: null,
+          onPressed: () => showAddNoteDialog(context, widget.color),
           child: Icon(Icons.add),
         ),
       ),
