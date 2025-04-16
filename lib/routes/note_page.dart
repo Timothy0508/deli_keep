@@ -30,9 +30,14 @@ class _NotePageState extends State<NotePage> {
       slivers: [
         SliverAppBar(
           title: Text(widget.title),
-          backgroundColor: Theme.of(context).colorScheme.surfaceContainer,
+          backgroundColor:
+              Theme.of(context)
+                  .copyWith(
+                    colorScheme: ColorScheme.fromSeed(seedColor: widget.color),
+                  )
+                  .colorScheme
+                  .inversePrimary,
           expandedHeight: 200,
-          iconTheme: IconThemeData(size: 40),
           flexibleSpace: Container(
             alignment: Alignment.bottomLeft,
             margin: EdgeInsets.all(20),
@@ -52,6 +57,17 @@ class _NotePageState extends State<NotePage> {
       ],
     );
 
-    return Scaffold(body: body);
+    return Theme(
+      data: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: widget.color),
+      ),
+      child: Scaffold(
+        body: body,
+        floatingActionButton: FloatingActionButton(
+          onPressed: null,
+          child: Icon(Icons.add),
+        ),
+      ),
+    );
   }
 }
