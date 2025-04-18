@@ -24,8 +24,13 @@ class _NoteContainerState extends State<NoteContainer> {
     ).copyWith(colorScheme: ColorScheme.fromSeed(seedColor: widget.themeColor));
     return Theme(
       data: theme,
-      child: Card(
-        child: Row(children: [Text(widget.note.title), Text(widget.note.body)]),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(10),
+        child: Card(
+          child: Row(
+            children: [Text(widget.note.title), Text(widget.note.body)],
+          ),
+        ),
       ),
     );
   }
