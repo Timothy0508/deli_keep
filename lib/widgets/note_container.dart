@@ -27,7 +27,7 @@ class _NoteContainerState extends State<NoteContainer> {
       child: InkWell(
         borderRadius: BorderRadius.circular(10),
         child: Card(
-          child: Row(
+          child: Column(
             children: [Text(widget.note.title), Text(widget.note.body)],
           ),
         ),

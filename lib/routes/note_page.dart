@@ -74,7 +74,12 @@ class _NotePageState extends State<NotePage> {
       ),
     );
 
-    var notesShowcase = SliverList(delegate: SliverChildListDelegate(notes));
+    var notesShowcase = SliverGrid(
+      delegate: SliverChildListDelegate(notes),
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+        crossAxisCount: 5,
+      ),
+    );
 
     var body = CustomScrollView(slivers: [appBar, notesShowcase]);
 

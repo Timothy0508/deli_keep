@@ -1,5 +1,7 @@
-import 'package:deli_keep/routes/note_page.dart';
 import 'package:flutter/material.dart';
+
+import '../models/note.dart';
+import '../routes/note_page.dart';
 
 ///The enum for each types.
 ///
@@ -80,6 +82,7 @@ class _TypeCardState extends State<TypeCard> {
                       color: widget.type.color,
                       backgroundColor: widget.type.backgroundColor,
                       icon: widget.type.icon,
+                      notes: [Note(id: '1', title: 'iii', body: 'ijij')],
                     ),
               ),
             ),
